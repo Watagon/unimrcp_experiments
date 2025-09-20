@@ -95,16 +95,16 @@ The app does nothing. It is just a build smoke test to confirm we can compile an
 To build it:
 ```
 cd minimal_app/
-rm CMakeCache.txt CMakeFiles/ cmake_install.cmake -fr
-cmake .
+rm -rf build/
+cmake -B build
 make
 ```
 Sample execution:
 
 ```
 MayamaTakeshi@takeshi-desktop:unimrcp_experiments$ cd minimal_app/
-MayamaTakeshi@takeshi-desktop:minimal_app$ rm CMakeCache.txt CMakeFiles/ cmake_install.cmake -fr
-MayamaTakeshi@takeshi-desktop:minimal_app$ cmake .
+MayamaTakeshi@takeshi-desktop:minimal_app$ rm -rf build/
+MayamaTakeshi@takeshi-desktop:minimal_app$ cmake -B build
 -- The C compiler identification is GNU 10.2.1
 -- The CXX compiler identification is GNU 10.2.1
 -- Detecting C compiler ABI info
@@ -120,7 +120,7 @@ MayamaTakeshi@takeshi-desktop:minimal_app$ cmake .
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/MayamaTakeshi/src/git/unimrcp_experiments/minimal_app
-MayamaTakeshi@takeshi-desktop:minimal_app$ make
+MayamaTakeshi@takeshi-desktop:minimal_app$ cmake --build build
 Scanning dependencies of target app
 [ 50%] Building C object CMakeFiles/app.dir/main.c.o
 [100%] Linking C executable app
@@ -129,12 +129,12 @@ Scanning dependencies of target app
 
 You can run the app by doing:
 ```
-./app
+./build/app
 ```
 
 Ex:
 ```
-MayamaTakeshi@takeshi-desktop:minimal_app$ ./app 
+MayamaTakeshi@takeshi-desktop:minimal_app$ ./build/app
 OK
 ```
 
