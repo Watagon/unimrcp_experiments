@@ -172,9 +172,14 @@ echo '. "$HOME/.asdf/completions/asdf.bash"' >> ~/.bashrc
 # Source the asdf script directly within the same RUN block to get access to asdf ('source ~/.bashrc' will not work)
 source "$HOME/.asdf/asdf.sh"
 source "$HOME/.asdf/completions/asdf.bash"
+EOF
 
-asdf plugin add rust
-asdf install rust 1.89.0
-asdf global rust 1.89.0
+RUN <<EOF
+set -o errexit
+set -o nounset
+set -o pipefail
+
+echo 'Installing rustup'
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -yq
 EOF
 
