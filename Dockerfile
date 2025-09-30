@@ -17,6 +17,9 @@ RUN apt-get -y install build-essential automake autoconf libtool libspeex-dev li
 # install sngrep deps
 RUN apt-get -y install libpcap-dev libncurses5 libssl-dev libncursesw5-dev libpcre2-dev libz-dev
 
+# install plugin build deps
+RUN apt-get -y install clang
+
 RUN mkdir -p /usr/local/src/git
 
 RUN <<EOF
